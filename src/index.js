@@ -1,16 +1,20 @@
 import './style.css'
 
-import createUser from './createUser'
-import createProject from './createProject'
-import createTask from './createTask'
+import newTask from './createTasks'
 
-const user = createUser('Liam')
+let allTasks = []
 
-user.project1 = createProject("groceris", "")
-user.project2 = createProject("School", "math")
+const addToAllTasks = function(taskToAdd){
+    allTasks.push(taskToAdd)
+}
 
-user.project1.task1 = createTask('milk', '', '5 may', 1)
-user.project1.task2 = createTask('milk', '', '5 may', 1)
-user.project1.task3 = createTask('milk', '', '5 may', 1)
+const taskOne = newTask('Buy Milk', '4 packs', '5 weeks', 3)
+const taskTwo = newTask('Buy Eggs', '1 carton', 'Tomorrow', 2)
+const taskThree = newTask('Buy Waffle mix', '1 pack', '1 year', 4)
 
-console.log(user)
+
+addToAllTasks(taskOne)
+addToAllTasks(taskTwo)
+addToAllTasks(taskThree)
+
+console.log(allTasks)

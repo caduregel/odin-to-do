@@ -9,7 +9,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Blooperd',
+      template: './src/template.html',
     }),
   ],
   module: {
