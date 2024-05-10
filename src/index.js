@@ -1,20 +1,22 @@
 import './style.css'
+import { Task, Project } from './createProjects'
+import { displayProjectNavigation } from './displayToDom'
 
-import newTask from './createTasks'
+const projectOne = new Project('sam', 'A newly created project')
+const projectTwo = new Project('Liam', "a very fun project")
+const projectThree = new Project("Mai", "A very fun project")
 
-let allTasks = []
+const taskone = new Task('Buy Milk', "Two Gallons", "TOmorrow,", 3)
+const taskTwo = new Task('Buy Cat Food', "Two packs", "sunday,", 1)
+const taskThree = new Task('Buy Avocados', "3", "12 may,", 4)
+const taskFour= new Task('Buy new shoes', "Timberlands", "2025,", 4)
 
-const addToAllTasks = function(taskToAdd){
-    allTasks.push(taskToAdd)
-}
+projectOne.addTask(taskone)
+projectOne.addTask(taskTwo)
+projectOne.addTask(taskThree)
 
-const taskOne = newTask('Buy Milk', '4 packs', '5 weeks', 3)
-const taskTwo = newTask('Buy Eggs', '1 carton', 'Tomorrow', 2)
-const taskThree = newTask('Buy Waffle mix', '1 pack', '1 year', 4)
+projectTwo.addTask(taskFour)
 
+projectThree.editName('Tariq')
 
-addToAllTasks(taskOne)
-addToAllTasks(taskTwo)
-addToAllTasks(taskThree)
-
-console.log(allTasks)
+displayProjectNavigation()
