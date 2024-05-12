@@ -39,6 +39,14 @@ export const displayProject = function (project) {
         const taskComplete = document.createElement('input')
         taskComplete.setAttribute('type', 'checkbox')
 
+        taskComplete.addEventListener('click', ()=>{
+            if(projectTasks.completed == false){
+                projectTasks.completed = true
+            } else{
+                projectTasks.completed = false
+            }  
+        })
+
         newTaskDisplay.appendChild(taskName)
         newTaskDisplay.appendChild(taskDescription)
         newTaskDisplay.appendChild(taskDueDate)

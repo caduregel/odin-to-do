@@ -1,3 +1,4 @@
+
 export class Task {
     constructor(name, description, dueDate, priority) {
         this.name = name
@@ -23,12 +24,13 @@ export class Task {
         this.priority = newPriority
     }
 
-    switchCompletion(){
-        if(this.completed == false){
+    switchCompletion() {
+        if (this.completed == false) {
             this.completed = true
-        } else {this.completed = false}
+        } else { this.completed = false }
     }
 }
+
 
 export class Project {
     static allProjects = []
@@ -46,7 +48,10 @@ export class Project {
     }
 
     deleteTask(task) {
-        this.tasks = this.tasks.filter(x => x.task !== task)
+        const index = this.tasks.indexOf(task);
+        if (index > -1) { // only splice array when item is found
+            this.tasks.splice(index, 1); // 2nd parameter means remove one item only
+        }
     }
 
     editName(newName) {
