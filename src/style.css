@@ -41,3 +41,15 @@
     padding: 20px;
     justify-content:right;
 }
+
+#project-page {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Task */
+
+.task {
+    display: flex;
+    justify-content: space-around;
+}

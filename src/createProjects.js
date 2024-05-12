@@ -1,5 +1,5 @@
 export class Task {
-    constructor(id, name, description, dueDate, priority,) {
+    constructor(name, description, dueDate, priority) {
         this.name = name
         this.description = description
         this.dueDate = dueDate
@@ -40,13 +40,13 @@ export class Project {
         Project.allProjects.push(this);
     }
 
-    addTask(name) {
-        const id = this.tasks.length
-        this.tasks.push(new Task(id, name))
+    addTask(task) {
+        // const id = this.tasks.length
+        this.tasks.push(task)
     }
 
-    deleteTask(id) {
-        this.tasks = this.tasks.filter(x => x.id !== id)
+    deleteTask(task) {
+        this.tasks = this.tasks.filter(x => x.task !== task)
     }
 
     editName(newName) {
