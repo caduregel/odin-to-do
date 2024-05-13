@@ -60,4 +60,9 @@ export class Project {
     editDescription(newDescription) {
         this.description = newDescription
     }
-}
+
+    deleteProject(project){
+        const index = Project.allProjects.indexOf(project)
+        Project.allProjects.splice(index, 1)
+    }
+ }
