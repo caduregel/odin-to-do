@@ -49,8 +49,12 @@ export class Project {
 
     deleteTask(task) {
         const index = this.tasks.indexOf(task);
+        
         if (index > -1) { // only splice array when item is found
             this.tasks.splice(index, 1); // 2nd parameter means remove one item only
+        }
+        if(this.tasks.length == 0){
+            document.querySelector('#tasks-container').innerHTML = ''
         }
     }
 

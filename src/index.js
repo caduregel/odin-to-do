@@ -2,6 +2,7 @@ import './style.css'
 import { Task, Project } from './createProjects'
 import { displayProjectNavigation } from './displayingToDom/displayToDom'
 
+
 const projectOne = new Project('sam', 'A newly created project')
 const projectTwo = new Project('Liam', "a very fun project")
 const projectThree = new Project("Mai", "A very fun project")
@@ -20,8 +21,5 @@ projectOne.addTask(taskThree)
 
 projectTwo.addTask(taskFour)    
 
-projectOne.deleteTask(taskThree)
-
-console.log(projectOne.tasks)
-
+console.log(Project.allProjects)
 displayProjectNavigation()

@@ -13,9 +13,11 @@
         <p id="all-button">All Tasks</p>
         <h2>projects</h2>
         <ul class="side-bar-list"> </ul>
+        <button id="new-project">New Project</button>
+        
     </div>
     <div id="project-page">
-        <div id="project-header">
+        <div id="project-header" class="hide-item">
             <div style="display: flex; flex-direction: column; margin-right:auto;">
                 <h1 id="project-name-header">Project Name</h1>
                 <p id="project-description-header">Project description</p>
@@ -23,14 +25,7 @@
             <button id="new-task">New Task</button>
             <button id="delete-project">Delete project</button>
         </div>
-        <div id="tasks-container">
-            <div class="task">
-                <input type="text" placeholder="Get Milk">
-                <input type="text" placeholder="2 jugs">
-                <input type="date" placeholder="4 May">
-                <input type="checkbox">
-            </div>
-        </div>
+        <div id="tasks-container"></div>
     </div>
 </body>
 

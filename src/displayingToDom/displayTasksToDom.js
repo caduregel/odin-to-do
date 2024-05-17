@@ -21,6 +21,9 @@ export const displayTasksToDom = function (project) {
         const taskComplete = document.createElement('input')
         taskComplete.setAttribute('type', 'checkbox')
 
+        const deleteTask = document.createElement('button')
+        deleteTask.textContent = 'x'
+
         // Entering a new Task Title
         taskName.addEventListener('focusout', () => {
             projectTasks.editName(taskName.value)
@@ -39,17 +42,29 @@ export const displayTasksToDom = function (project) {
             console.log(project)
         })
 
+        //  Setting the task to complete
         taskComplete.addEventListener('click', () => {
             projectTasks.switchCompletion()
         })
+
+        // Deleting a task
+        deleteTask.addEventListener('click', () => {
+            project.deleteTask(projectTasks)
+            displayTasksToDom(project)
+        })
+
 
         newTaskDisplay.appendChild(taskName)
         newTaskDisplay.appendChild(taskDescription)
         newTaskDisplay.appendChild(taskDueDate)
         newTaskDisplay.appendChild(taskComplete)
+        newTaskDisplay.appendChild(deleteTask)
 
         return newTaskDisplay
     })
+
+
+
     tasksDisplay.forEach(function (element) {
         document.querySelector('#tasks-container').appendChild(element)
     })
