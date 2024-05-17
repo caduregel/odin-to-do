@@ -61,8 +61,10 @@ export class Project {
         this.description = newDescription
     }
 
-    deleteProject(project){
-        const index = Project.allProjects.indexOf(project)
-        Project.allProjects.splice(index, 1)
+    deleteProject(project) {
+        const index = Project.allProjects.indexOf(project);
+        if (index > -1) { // only splice array when item is found
+            Project.allProjects.splice(index, 1); // 2nd parameter means remove one item only
+        }
     }
- }
+}

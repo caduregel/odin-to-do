@@ -5,6 +5,8 @@ import { displayTasksToDom } from "./displayTasksToDom"
 export const displayProjectNavigation = function () {
     document.querySelector('.side-bar-list').innerHTML = ''
     let allProjects = Project.allProjects
+    let currentProject = undefined
+
     const eachProject = allProjects.map(function (element) {
         // Element refers to the project that is currently being iterated over
         const newProjectDisplay = document.createElement('li')
@@ -13,12 +15,18 @@ export const displayProjectNavigation = function () {
 
         newProjectDisplay.addEventListener('click', () => {
             // Calls to display a project to the page
+            currentProject = element
             displayProject(element)
         })
-
         return newProjectDisplay
     })
-    
+
+    // Deleting the project
+    document.querySelector('#delete-project').addEventListener('click', () => {
+        // To be done: Change page to homepage
+        currentProject.deleteProject(currentProject)
+        displayProjectNavigation()
+    })
 
     eachProject.forEach(element => {
         document.querySelector('.side-bar-list').appendChild(element)
@@ -37,13 +45,6 @@ export const displayProject = function (project) {
         const task = new Task('', '', '', '')
         project.addTask(task)
         displayTasksToDom(project)
-    })
-
-    // Deleting the project
-    document.querySelector('#delete-project').addEventListener('click', () => {
-        // To be done: Change page to homepage
-        project.deleteProject(project)
-        displayProjectNavigation()
     })
 
     displayTasksToDom(project)
