@@ -1,4 +1,5 @@
 import { Project } from "../../createProjects"
+import { displayUncompletedTasks } from "./displayUncompleted"
 
 export const displayProjects = function () {
     const projectsToDisplay = Project.allProjects.slice(0, 3)
@@ -26,6 +27,8 @@ export const displayProjects = function () {
 
             taskCompleted.addEventListener('click', () => {
                 task.switchCompletion()
+                document.querySelector("#uncompleted-tasks").innerHTML = ''
+                displayUncompletedTasks()
             })
 
             HTMLtask.appendChild(taskTitle)

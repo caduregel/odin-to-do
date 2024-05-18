@@ -7,6 +7,7 @@ import { displayHomePage } from './displayingToDom/displayHomePage/displayHomePa
 const projectOne = new Project('sam', 'A newly created project')
 const projectTwo = new Project('Liam', "a very fun project")
 const projectThree = new Project("Mai", "A very fun project")
+const projectFive = new Project('assaf', 'An extremely neat project')
 const projectFour = new Project("sharon", "A very fun project")
 
 const taskone = new Task('Buy Milk', "Two Gallons", '2024-11-03', "3", )
