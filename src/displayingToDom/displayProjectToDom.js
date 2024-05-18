@@ -1,10 +1,7 @@
 import { Project } from "../createProjects"
-import { displayProject } from "./displayToDom"
+import { displayProject } from "./ProjectDOMHandler"
 
 export let currentProject = undefined
-
-
-
 
 export const displayProjects = function () {
     document.querySelector('.side-bar-list').innerHTML = ''

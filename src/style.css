@@ -3,21 +3,46 @@
     font-family: Impact, 'Arial Narrow Bold', sans-serif;
 }
 
+body {
+    background-color: #dcfce7;
+}
+
 /* Side Bar */
 #side-bar {
     display: flex;
     flex-direction: column;
     padding: 20px;
     height: 100vh;
-    background-color: black;
+    background-color: #16a34a;
     float: left;
     color: white;
     width: 15vw;
 }
 
+#home-button {
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+#side-bar>h2 {
+    font-weight: 400;
+    border-bottom: 3px solid white;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    cursor: default;
+    caret-color: transparent;
+}
+
 .side-bar-list {
     list-style-type: none;
+
     caret-color: transparent;
+    font-size: 18px;
+}
+
+.side-bar-list>li {
+    margin-bottom: 10px;
 }
 
 .side-bar-list>li:hover {
@@ -25,11 +50,24 @@
 }
 
 #side-bar>p {
-    font-size: 25px;
     caret-color: transparent;
 }
 
 #side-bar>p:hover {
+    cursor: pointer;
+}
+
+#new-project {
+    background-color: #4ade80;
+    border-radius: 10px;
+    border: none;
+    font-size: 18px;
+    height: 35px;
+    width: 140px;
+    margin-left: 35px;
+}
+
+#new-project:hover {
     cursor: pointer;
 }
 
@@ -39,7 +77,7 @@
     display: none;
     flex-direction: row;
     padding: 20px;
-    justify-content:right;
+    justify-content: right;
 }
 
 #project-page {
@@ -51,5 +89,142 @@
 
 .task {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin: 10px 20px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.task>input {
+    background-color: white;
+    border: none;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.task>input:focus {
+    border: 2px solid #4ade80;
+    outline: none;
+    cursor: text;
+}
+
+.task>input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+    caret-color: transparent;
+    cursor: pointer;
+}
+
+.task>input[type="checkbox"]::before {
+    content: "";
+    width: 0.68em;
+    height: 0.68em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em black;
+}
+
+
+.task>input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+.task>button {
+    border: none;
+    background-color: #4ade80;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    font-size: 15px;
+    color: #166534;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Home page */
+
+#home-page {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+}
+
+#biggest-projects-container {
+    margin: 20px;
+    grid-area: 2 / 1 / 2 / 3;
+}
+
+#biggest-projects {
+    display: flex;
+    justify-content: space-between;
+}
+
+.project-card {
+    padding: 20px;
+    width: 100%;
+    margin-top: 15px;
+    margin-right: 20px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.project-card>* {
+    margin: 5px;
+}
+
+.task-card-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    background-color: #bbf7d0;
+    border-radius: 8px;
+    height: 30px;
+}
+
+.task-card-container>input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+    caret-color: transparent;
+    cursor: pointer;
+}
+
+.task-card-container>* {
+    margin: 0px 20px;
+}
+
+.urgent-task {
+    display: flex;
+}
+
+.urgent-task>* {
+    margin: 6px;
+}
+
+.uncompleted-task {
+    display: flex;
+
+}
+
+.uncompleted-task>* {
+    margin: 6px;
 }

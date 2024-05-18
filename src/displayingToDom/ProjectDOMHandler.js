@@ -19,7 +19,7 @@ export const displayProjectNavigation = function () {
         const projectHeader = document.querySelector('#project-header')
         projectHeader.style.display = 'none'
         currentProject.deleteProject(currentProject)
-            projectHeader.style.display = 'none'
+        projectHeader.style.display = 'none'
         displayProjectNavigation()
     })
 
@@ -35,7 +35,7 @@ export const displayProjectNavigation = function () {
 
 // Displaying a projects name, description, and tasks to the page when clicking on it from the sidebar
 export const displayProject = function (project, onProject) {
-
+    document.querySelector('#home-page').style.display = 'none'
     const projectHeader = document.querySelector('#project-header')
     if (onProject == true) {
         projectHeader.style.display = 'flex'

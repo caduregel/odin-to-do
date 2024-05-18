@@ -20,6 +20,7 @@ export const displayTasksToDom = function (project) {
 
         const taskComplete = document.createElement('input')
         taskComplete.setAttribute('type', 'checkbox')
+        taskComplete.checked = projectTasks.completed
 
         const deleteTask = document.createElement('button')
         deleteTask.textContent = 'x'
