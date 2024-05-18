@@ -85,6 +85,33 @@ body {
     flex-direction: column;
 }
 
+#project-name-header {
+    border: none;
+    background-color: #dcfce7;
+    font-size: 30px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#project-name-header:focus {
+    border: 2px solid #4ade80;
+    outline: none;
+    cursor: text;
+}
+
+#project-description-header {
+    border: none;
+    background-color: #dcfce7;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#project-description-header:focus {
+    border: 2px solid #4ade80;
+    outline: none;
+    cursor: text;
+}
+
 /* Task */
 
 .task {
@@ -215,7 +242,8 @@ body {
 #urgent-tasks-container {
     margin: 10px;
 }
-#urgent-tasks-container > h1 {
+
+#urgent-tasks-container>h1 {
     margin: 0px 20px;
 }
 
@@ -246,6 +274,28 @@ body {
     margin: 10px 0px;
 }
 
-#uncompleted-tasks-container>h1{
+#uncompleted-tasks-container>h1 {
     margin: 0px 20px;
+}
+
+#new-task {
+    background-color: #4ade80;
+    border-radius: 10px;
+    border: none;
+    font-size: 18px;
+    height: 40px;
+    width: 140px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+#delete-project {
+    background-color: #dc2626;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    font-size: 18px;
+    height: 40px;
+    width: 140px;
+    cursor: pointer;
 }

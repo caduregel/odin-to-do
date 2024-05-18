@@ -1,6 +1,7 @@
 import { Project, Task } from "../createProjects"
 import { displayTasksToDom } from "./displayTasksToDom"
 import { displayProjects, currentProject } from './displayProjectToDom'
+import { displayHomePage } from "./displayHomePage/displayHomePage"
 
 export const displayProjectNavigation = function () {
     document.querySelector('.side-bar-list').innerHTML = ''
@@ -16,11 +17,13 @@ export const displayProjectNavigation = function () {
     // Deleting the project
     document.querySelector('#delete-project').addEventListener('click', () => {
         // To be done: Change page to homepage
-        const projectHeader = document.querySelector('#project-header')
-        projectHeader.style.display = 'none'
-        currentProject.deleteProject(currentProject)
-        projectHeader.style.display = 'none'
-        displayProjectNavigation()
+        let confirmation = confirm("Are you sure you want to remove this project?");
+        if (confirmation) {
+            currentProject.deleteProject(currentProject)
+            displayProjectNavigation()
+            displayHomePage()
+        }
+
     })
 
     // Adding a task
@@ -42,8 +45,24 @@ export const displayProject = function (project, onProject) {
     }
 
     // Changing the header name and description to the clicked project
-    document.querySelector('#project-name-header').textContent = project.name
-    document.querySelector('#project-description-header').textContent = project.description
+    const projectNameHeader = document.querySelector('#project-name-header')
+    const projectDescriptionHeader = document.querySelector('#project-description-header')
+
+    projectNameHeader.value = project.name
+    projectDescriptionHeader.value = project.description
+
+    // Entering a new Task Description
+    projectNameHeader.addEventListener('focusout', () => {
+        currentProject.editName(projectNameHeader.value)
+        displayProjects()
+    })
+
+    // Entering a new Task Title
+    projectDescriptionHeader.addEventListener('focusout', () => {
+        currentProject.editDescription(projectDescriptionHeader.value)
+        displayProjects()
+    })
+
 
     displayTasksToDom(project)
 }

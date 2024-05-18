@@ -1,10 +1,10 @@
-import { Project } from "../../createProjects"
 import { displayProjects } from "./displayProjectsHome";
 import { displayUncompletedTasks } from "./displayUncompleted";
 import { displayUrgentTasks } from "./displayUrgentTasks";
 
 export const displayHomePage = function () {
-    document.querySelector('#home-button').addEventListener('click', () => {
+
+    const displayHome = function () {
         document.querySelector('#home-page').style.display = 'grid'
         document.querySelector('#project-header').style.display = 'none'
         document.querySelector('#tasks-container').innerHTML = ''
@@ -19,9 +19,10 @@ export const displayHomePage = function () {
         displayUrgentTasks()
         // Display unfinished tasks
         displayUncompletedTasks()
-    })
+    }
 
-    displayProjects()
-    displayUrgentTasks()
-    displayUncompletedTasks()
+    document.querySelector('#home-button').addEventListener('click', () => {
+        displayHome()
+    })
+    displayHome()
 }
