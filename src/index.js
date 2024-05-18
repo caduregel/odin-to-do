@@ -21,7 +21,7 @@ projectOne.addTask(taskone)
 projectOne.addTask(taskTwo)
 projectOne.addTask(taskThree)
 
-projectTwo.addTask(taskFour)    
+projectTwo.addTask(taskFour)
 
 
 console.log(Project.allProjects)

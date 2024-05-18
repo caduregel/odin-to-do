@@ -212,19 +212,40 @@ body {
     margin: 0px 20px;
 }
 
-.urgent-task {
-    display: flex;
+#urgent-tasks-container {
+    margin: 10px;
+}
+#urgent-tasks-container > h1 {
+    margin: 0px 20px;
 }
 
-.urgent-task>* {
-    margin: 6px;
+.urgent-task {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 20px;
+    padding: 5px;
+    background-color: white;
+    border-radius: 8px;
+    height: 30px;
 }
 
 .uncompleted-task {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 20px;
+    padding: 5px;
+    background-color: white;
+    border-radius: 8px;
+    height: 30px;
 
 }
 
-.uncompleted-task>* {
-    margin: 6px;
+#uncompleted-tasks-container {
+    margin: 10px 0px;
+}
+
+#uncompleted-tasks-container>h1{
+    margin: 0px 20px;
 }
