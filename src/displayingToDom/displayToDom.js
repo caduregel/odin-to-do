@@ -1,26 +1,25 @@
 import { Project, Task } from "../createProjects"
 import { displayTasksToDom } from "./displayTasksToDom"
-let currentProject = undefined
-
+import { displayProjects, currentProject } from './displayProjectToDom'
 
 export const displayProjectNavigation = function () {
     document.querySelector('.side-bar-list').innerHTML = ''
-    let allProjects = Project.allProjects
+    displayProjects()
 
 
     document.querySelector('#new-project').addEventListener('click', () => {
         new Project('New Project', '')
-        displayProjectNavigation()
+        displayProjects()
         console.log('priject')
     })
-
-
-
 
     // Deleting the project
     document.querySelector('#delete-project').addEventListener('click', () => {
         // To be done: Change page to homepage
+        const projectHeader = document.querySelector('#project-header')
+        projectHeader.style.display = 'none'
         currentProject.deleteProject(currentProject)
+            projectHeader.style.display = 'none'
         displayProjectNavigation()
     })
 
@@ -31,9 +30,7 @@ export const displayProjectNavigation = function () {
         displayTasksToDom(currentProject)
     })
 
-    eachProject.forEach(element => {
-        document.querySelector('.side-bar-list').appendChild(element)
-    });
+
 }
 
 // Displaying a projects name, description, and tasks to the page when clicking on it from the sidebar
