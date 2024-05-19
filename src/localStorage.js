@@ -2,13 +2,30 @@ import { Task, Project } from "./createProjects";
 
 const projectsKey = 'projectsKey';
 
+function createTaskFromObject(obj) {
+    const task = new Task(obj.name, obj.description, obj.dueDate, obj.priority);
+    task.completed = obj.completed; // Preserve the completed status
+    return task;
+}
+
+function createProjectFromObject(obj) {
+    const project = new Project(obj.name, obj.description);
+    project.tasks = obj.tasks.map(taskObj => createTaskFromObject(taskObj));
+    return project;
+}
+
+
 export const saveProjectsToLocalStorage = function () {
     localStorage.setItem(projectsKey, JSON.stringify(Project.allProjects));
 }
 
 export const loadProjectsFromLocalStorage = function () {
     const data = localStorage.getItem(projectsKey);
-    return data ? JSON.parse(data) : [];
+    if (data) {
+        const plainProjects = JSON.parse(data);
+        return plainProjects.map(createProjectFromObject);
+    }
+    return [];
 }
 
 export const initializeProjects = function () {
