@@ -2,13 +2,15 @@ import { Project } from "../../createProjects";
 
 export const displayUrgentTasks = function () {
 
-    let allTasks = Project.allProjects.reduce((acc, project) => {
+    // Step 1: Flatten the tasks into a single array
+    const allTasks = Project.allProjects.reduce((acc, project) => {
         return acc.concat(project.tasks);
     }, []);
 
-    const allTasksSliced = allTasks.slice(0, 5)
+    // Step 2: Sort the tasks by due date
+    const sortedTasks = allTasks.sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate)).slice(0, 5);
 
-    const DOMallTasks = allTasksSliced.map(function(task){
+    const DOMallTasks = sortedTasks.map(function (task) {
         const Htmltask = document.createElement('div')
         Htmltask.classList.add('urgent-task')
 
