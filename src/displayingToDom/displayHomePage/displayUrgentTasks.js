@@ -8,7 +8,7 @@ export const displayUrgentTasks = function () {
     }, []);
 
     // Step 2: Sort the tasks by due date
-    const sortedTasks = allTasks.sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate)).slice(0, 5);
+    const sortedTasks = allTasks.sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate)).slice(0, 8);
 
     const DOMallTasks = sortedTasks.map(function (task) {
         const Htmltask = document.createElement('div')
