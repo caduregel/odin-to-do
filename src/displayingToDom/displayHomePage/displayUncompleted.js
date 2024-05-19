@@ -6,7 +6,8 @@ export const displayUncompletedTasks = function () {
         return acc.concat(project.tasks);
     }, []);
 
-    const uncompletedTasks = allTasks.filter(task => !task.completed);
+    const uncompletedTasks = allTasks.filter(task => !task.completed).slice(0, 5);
+
 
     const DOMallTasks = uncompletedTasks.map(function(task){
         const Htmltask = document.createElement('div')

@@ -2,6 +2,7 @@ import { Project, Task } from "../createProjects"
 import { displayTasksToDom } from "./displayTasksToDom"
 import { displayProjects, currentProject } from './displayProjectToDom'
 import { displayHomePage } from "./displayHomePage/displayHomePage"
+import { saveProjectsToLocalStorage } from "../localStorage"
 
 export const displayProjectNavigation = function () {
     document.querySelector('.side-bar-list').innerHTML = ''
@@ -11,7 +12,7 @@ export const displayProjectNavigation = function () {
     document.querySelector('#new-project').addEventListener('click', () => {
         new Project('New Project', '')
         displayProjects()
-        console.log('priject')
+        saveProjectsToLocalStorage()   
     })
 
     // Deleting the project
@@ -22,6 +23,7 @@ export const displayProjectNavigation = function () {
             currentProject.deleteProject(currentProject)
             displayProjectNavigation()
             displayHomePage()
+            saveProjectsToLocalStorage()
         }
 
     })
@@ -31,6 +33,7 @@ export const displayProjectNavigation = function () {
         const task = new Task('', '', '', '')
         currentProject.addTask(task)
         displayTasksToDom(currentProject)
+        saveProjectsToLocalStorage()
     })
 
 
@@ -51,16 +54,19 @@ export const displayProject = function (project, onProject) {
     projectNameHeader.value = project.name
     projectDescriptionHeader.value = project.description
 
-    // Entering a new Task Description
+    // Entering a new Project Description
     projectNameHeader.addEventListener('focusout', () => {
         currentProject.editName(projectNameHeader.value)
         displayProjects()
+        saveProjectsToLocalStorage()
     })
 
-    // Entering a new Task Title
+    // Entering a new Project Title
     projectDescriptionHeader.addEventListener('focusout', () => {
         currentProject.editDescription(projectDescriptionHeader.value)
         displayProjects()
+        saveProjectsToLocalStorage()
+
     })
 
 

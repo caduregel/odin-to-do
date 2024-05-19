@@ -1,3 +1,5 @@
+import { saveProjectsToLocalStorage } from "../localStorage"
+
 export const displayTasksToDom = function (project) {
     // Display the tasks section of a project
     const tasksDisplay = project.tasks.map(function (projectTasks) {
@@ -28,30 +30,32 @@ export const displayTasksToDom = function (project) {
         // Entering a new Task Title
         taskName.addEventListener('focusout', () => {
             projectTasks.editName(taskName.value)
-            console.log(projectTasks)
+            saveProjectsToLocalStorage()
         })
 
         // Entering a new Task Description
         taskDescription.addEventListener('focusout', () => {
             projectTasks.editDescription(taskDescription.value)
-            console.log(project)
+            saveProjectsToLocalStorage()
         })
 
         // Entering a new Task Due Date
         taskDueDate.addEventListener('focusout', () => {
             projectTasks.editDueDate(taskDueDate.value)
-            console.log(project)
+            saveProjectsToLocalStorage()
         })
 
         //  Setting the task to complete
         taskComplete.addEventListener('click', () => {
             projectTasks.switchCompletion()
+            saveProjectsToLocalStorage()
         })
 
         // Deleting a task
         deleteTask.addEventListener('click', () => {
             project.deleteTask(projectTasks)
             displayTasksToDom(project)
+            saveProjectsToLocalStorage()
         })
 
 
